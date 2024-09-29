@@ -1,0 +1,10 @@
+{
+    "Position": "Job Title",
+    "Company": "Company",
+    "Salary": "Salary",
+    "City": "City",
+    "PublicationDate": "Publication Date",
+    "Views": "No. of Views",
+    "salary_million": "{salary} million"
+  }
+  
