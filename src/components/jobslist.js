@@ -11,7 +11,7 @@ const JobsList = () => {
       salary: 4.5,
       city: "Bogotá, Colombia",
       date: "2019-03-26",
-      views: 1250, // Número de visitas
+      views: 1250,
     },
     {
       id: "0002",
@@ -20,7 +20,7 @@ const JobsList = () => {
       salary: 20,
       city: "Palo Alto, CA, USA",
       date: "2019-03-27",
-      views: 2500, // Número de visitas
+      views: 2500,
     },
     {
       id: "0003",
@@ -29,36 +29,25 @@ const JobsList = () => {
       salary: 1,
       city: "Cali, Colombia",
       date: "2019-03-28",
-      views: 700, // Número de visitas
+      views: 700,
     },
   ]);
 
-  const headerBackgroundColor = "en" ? "thead-dark" : "thead-light";
+  const language = navigator.language.split(/[-_]/)[0];
+  const tableStyle = language === "es" ? { backgroundColor: "#f8f9fa" } : { backgroundColor: "#343a40", color: "#fff" }; // Estilo dinámico
 
   return (
     <div>
-      <table className="table">
-        <thead className={headerBackgroundColor}>
+      <table className="table" style={tableStyle}>
+        <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">
-              <FormattedMessage id="Position" />
-            </th>
-            <th scope="col">
-              <FormattedMessage id="Company" />
-            </th>
-            <th scope="col">
-              <FormattedMessage id="Salary" />
-            </th>
-            <th scope="col">
-              <FormattedMessage id="City" />
-            </th>
-            <th scope="col">
-              <FormattedMessage id="PublicationDate" />
-            </th>
-            <th scope="col">
-              <FormattedMessage id="Views" />
-            </th>
+            <th scope="col"><FormattedMessage id="Position" /></th>
+            <th scope="col"><FormattedMessage id="Company" /></th>
+            <th scope="col"><FormattedMessage id="Salary" /></th>
+            <th scope="col"><FormattedMessage id="City" /></th>
+            <th scope="col"><FormattedMessage id="PublicationDate" /></th>
+            <th scope="col"><FormattedMessage id="Views" /></th>
           </tr>
         </thead>
         <tbody>
@@ -72,3 +61,4 @@ const JobsList = () => {
 };
 
 export default JobsList;
+
