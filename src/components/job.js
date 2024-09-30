@@ -1,15 +1,19 @@
 import React from "react";
-import { FormattedDate, FormattedMessage } from "react-intl";
+import { FormattedDate, FormattedNumber, FormattedMessage } from "react-intl";
 
 const Job = (props) => {
-  const salaryText = props.offer.salary >= 1 ? (
-    <FormattedMessage
-      id="salary_million"
-      values={{ salary: props.offer.salary }}
-    />
-  ) : (
-    props.offer.salary
-  );
+  const salaryText =
+    props.offer.salary >= 1 ? (
+      <FormattedMessage
+        id="salary_million"
+        values={{
+          salary: props.offer.salary,
+          million: props.offer.salary === 1 ? "millón" : "millones",
+        }}
+      />
+    ) : (
+      props.offer.salary
+    );
 
   return (
     <tr>
@@ -27,9 +31,14 @@ const Job = (props) => {
           weekday="long"
         />
       </td>
-      <td>{props.offer.views.toLocaleString()}</td> {/* Formato de número con separadores */}
+      <td>
+        <FormattedNumber value={props.offer.views} /> {/* Formato con separadores de miles */}
+      </td>
     </tr>
   );
 };
+
+export default Job;
+
 
 export default Job;
